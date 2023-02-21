@@ -6,7 +6,6 @@ pipeline {
             steps {
                 sh '''
                 git pull git@github.com:shubham2709/pipeline.git main
-                sudo systemctl start docker
                 sudo docker build -t  013855211335.dkr.ecr.us-east-1.amazonaws.com/pipeline:$BUILD_NUMBER .
                 # login to ecr 
                 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 013855211335.dkr.ecr.us-east-1.amazonaws.com
